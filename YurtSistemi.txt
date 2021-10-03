@@ -1,0 +1,88 @@
+ CREATE TABLE public.calisan (
+    tc character varying(11) NOT NULL,
+    isim character varying(20),
+    dugum_tarihi date,
+    telefon_no character varying(11),
+    adres character varying(11),
+    maas integer,
+    maas_alma_tarihi date
+);
+
+
+CREATE TABLE public.etkinlik (
+    etkinlik_id integer NOT NULL,
+    sunan_hoca character varying(20) NOT NULL,
+    etkinlik_turu character varying(20) NOT NULL,
+    aciklama text
+);
+
+
+CREATE TABLE public.kat (
+    kat_numarasi integer NOT NULL,
+    oda_sayisi integer
+);
+
+
+  CREATE TABLE public.kitablik (
+    kitap_id integer NOT NULL,
+    kitap_adi character varying(20) NOT NULL,
+    yazar character varying(20) NOT NULL
+);
+
+
+CREATE TABLE public.kural (
+    kural_id integer NOT NULL,
+    aciklama character varying(100) NOT NULL
+);
+
+
+CREATE TABLE public.muhasebe_personeli (
+)
+INHERITS (public.calisan);
+
+
+ CREATE TABLE public.oda (
+    oda_numarasi integer NOT NULL,
+    yatak_sayisi integer,
+    kat_numarasi integer
+);
+
+
+CREATE TABLE public.ogrenci (
+    ogrenci_no integer NOT NULL,
+    ogrenci_adi character varying(20) NOT NULL,
+    ogrenci_soyad character varying(20) NOT NULL,
+    dugum_tarihi date NOT NULL,
+    telefon_no character varying(11) NOT NULL,
+    oda_numarasi integer
+);
+
+
+ CREATE TABLE public.spor_salonu (
+    gun date NOT NULL,
+    saat time(4) without time zone,
+    spor_turu character varying(30)
+);
+
+
+CREATE TABLE public.temizlik_personeli (
+    kat_numarasi integer,
+    muhaseip_tc character varying(11)
+)
+INHERITS (public.calisan);
+
+CREATE TABLE public.yemekhane (
+    yemek_listesi character varying(50) NOT NULL,
+    tarih date NOT NULL
+);
+
+CREATE TABLE public.yemekhane_personeli (
+    muhasip_tc character varying(11)
+)
+INHERITS (public.calisan);
+
+
+CREATE TABLE public.yonetim_personeli (
+    muhasip_tc character varying(11)
+)
+INHERITS (public.calisan);
