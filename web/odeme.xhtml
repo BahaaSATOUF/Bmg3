@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>odeme</title>
+        <h:outputStylesheet library ="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-info">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <h:form>  
+                      <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <h:commandLink styleClass="nav-link" action="ogrenci" value="Ogrenci"/>
+                            </li>
+                          <li class="nav-item">
+                                <h:commandLink styleClass="nav-link" action="odeme" value="odeme"/>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink styleClass="nav-link" action="kitablik" value="Kitablik"/>
+                            </li>
+                          <li class="nav-item">
+                                <h:commandLink styleClass="nav-link" action="oda" value="Oda"/>
+                            </li>
+                             <li class="nav-item">
+                                <h:commandLink styleClass="nav-link" action="kat" value="Kat"/>
+                            </li>                                        
+                        </ul> 
+
+                    </h:form>
+                </div>
+            </nav>
+        </div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-7">
+                    <h:form id="category-table" >
+                        <h:dataTable class=" table table-striped" value="#{odemeController.CList}" var="cat">
+                            <h:column >
+                                <f:facet name="header">ogrenci_no</f:facet>
+                                    #{cat.ogrenci_no}
+                            </h:column>
+                            <h:column >
+                                <f:facet name="header">muhsip_tc</f:facet>
+                                <h:commandLink action="#{odemeController.updateFrom(cat)}" value="#{cat.muhsip_tc}">
+                                    <f:ajax execute="@this" render="category-form"/>
+                                </h:commandLink>
+                            </h:column>
+                            <h:column >
+                                <f:facet name="header">odeme_miktari</f:facet>
+                                <h:commandLink action="#{odemeController.updateFrom(cat)}" value="#{cat.odeme_miktari}">
+                                    <f:ajax execute="@this" render="category-form"/>
+                                </h:commandLink>
+                            </h:column>                        
+                                          
+                            <h:column >
+                                <f:facet name="header">Delete</f:facet>
+                                <h:commandButton  onclick="$('.modal').modal('show')" class="btn btn-sm btn-danger" value="Delete" action="#{odemeController.deleteConfirm(cat)}">
+                                    <f:ajax execute="@this" render="category-model"/>
+                                </h:commandButton>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </div>
+                <div class="col-md-5">
+                    <h:form id ="category-form">
+                        <div class="form-group">
+
+                            <h:inputHidden value="#{odemeController.category.ogrenci_no}"/>
+                            <label for="input Name"> ogrenci_no :</label>
+                            <h:inputText styleClass="form-control" value="#{odemeController.category.ogrenci_no}"/>
+                            <label for="input Name">muhsip_tc :</label>
+                            <h:inputText styleClass="form-control" value="#{odemeController.category.muhsip_tc}"/>
+                            <label for="input Name">odeme_miktari :</label>
+                            <h:inputText styleClass="form-control" value="#{odemeController.category.odeme_miktari}"/>                         
+                         
+                        </div>
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <h:commandButton  class="btn btn-info" value="Update" action="#{odemeController.update()}">
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
+                                </h:commandButton>
+                                <h:commandButton  class="btn btn-primary" value="Create" action="#{odemeController.create()}">
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
+                                </h:commandButton>
+                            </div>
+                        </div>                
+                    </h:form>
+                </div>
+            </div>
+            <div class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  
+                </div>
+            </div>
+        </div>
+       
+    </h:body>
+
+
+</html>
+

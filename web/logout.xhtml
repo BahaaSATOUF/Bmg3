@@ -13,13 +13,22 @@
             <div class="row">
               
                 <div class="col-md-3">
-                    <h:form id ="category-form">                   
+                    <h:form id ="category-form">
+                        <div class="form-group">
+
+                        
+                         
+                            <label for="input Name">Username :</label>
+                            <h:inputText styleClass="form-control" value="#{loginController.user.username}"/>
+                            <label for="input Name">Password :</label>
+                            <h:inputText styleClass="form-control" value="#{loginController.user.password}"/>                          
+                        </div>
                         <div class="form-group">
                             <div class="btn-group">
-                                <h:commandButton  class="btn btn-info" value="login" action="/login?faces-redirect=true" >
+                                <h:commandButton  class="btn btn-info" value="login" action="#{loginController.login()}">
                                     <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
-                                <h:commandButton  class="btn btn-primary" value="logout" action="/logout?faces-redirect=true" >
+                                <h:commandButton  class="btn btn-primary" value="logout" action="/logout?faces-redirect=true">
                                     <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                             </div>

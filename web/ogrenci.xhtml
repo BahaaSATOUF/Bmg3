@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>ogrenci</title>
+        <h:outputStylesheet library ="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-info">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <h:form>  
+                      <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <h:commandLink styleClass="nav-link" action="ogrenci" value="Ogrenci"/>
+                            </li>
+                          <li class="nav-item">
+                                <h:commandLink styleClass="nav-link" action="odeme" value="odeme"/>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink styleClass="nav-link" action="kitablik" value="Kitablik"/>
+                            </li>
+                          <li class="nav-item">
+                                <h:commandLink styleClass="nav-link" action="oda" value="Oda"/>
+                            </li>
+                             <li class="nav-item">
+                                <h:commandLink styleClass="nav-link" action="kat" value="Kat"/>
+                            </li>                                        
+                        </ul> 
+                    </h:form>
+                </div>
+            </nav>
+        </div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-7">
+                    <h:form id="category-table" >
+                        <h:dataTable class=" table table-striped" value="#{ogrenciController.CList}" var="cat">
+                            <h:column >
+                                <f:facet name="header">OGRENCI NO</f:facet>
+                                    #{cat.ogrenci_no}
+                            </h:column>
+                            <h:column >
+                                <f:facet name="header">ADI</f:facet>
+                                <h:commandLink action="#{ogrenciController.updateFrom(cat)}" value="#{cat.ogrenci_adi}">
+                                    <f:ajax execute="@this" render="category-form"/>
+                                </h:commandLink>
+                            </h:column>
+                            <h:column >
+                                <f:facet name="header">SOYADI</f:facet>
+                                <h:commandLink action="#{ogrenciController.updateFrom(cat)}" value="#{cat.ogrenci_soyad}">
+                                    <f:ajax execute="@this" render="category-form"/>
+                                </h:commandLink>
+                            </h:column>                        
+                            <h:column >
+                                <f:facet name="header">TELEFON NO</f:facet>
+                                <h:commandLink action="#{ogrenciController.updateFrom(cat)}" value="#{cat.telefon_no}">
+                                    <f:ajax execute="@this" render="category-form"/>
+                                </h:commandLink>
+                            </h:column>
+                            <h:column >
+                                <f:facet name="header">ODA NO</f:facet>
+                                <h:commandLink action="#{ogrenciController.updateFrom(cat)}" value="#{cat.oda_numarasi}">
+                                    <f:ajax execute="@this" render="category-form"/>
+                                </h:commandLink>
+                            </h:column>
+                            <h:column >
+                                <f:facet name="header">Delete</f:facet>
+                                <h:commandButton  onclick="$('.modal').modal('show')" class="btn btn-sm btn-danger" value="Delete" action="#{ogrenciController.deleteConfirm(cat)}">
+                                    <f:ajax execute="@this" render="category-model"/>
+                                </h:commandButton>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </div>
+                <div class="col-md-5">
+                    <h:form id ="category-form">
+                        <div class="form-group">
+
+                            <h:inputHidden value="#{ogrenciController.category.ogrenci_no}"/>
+                            <label for="input Name"> OGRENCI NO :</label>
+                            <h:inputText styleClass="form-control" value="#{ogrenciController.category.ogrenci_no}"/>
+                            <label for="input Name">ADI :</label>
+                            <h:inputText styleClass="form-control" value="#{ogrenciController.category.ogrenci_adi}"/>
+                            <label for="input Name">SOYADI :</label>
+                            <h:inputText styleClass="form-control" value="#{ogrenciController.category.ogrenci_soyad}"/>                         
+                            <label for="input Name">TELEFON NO :</label>
+                            <h:inputText styleClass="form-control" value="#{ogrenciController.category.telefon_no}"/>
+                            <label for="input Name">ODA NO :</label>
+                            <h:inputText styleClass="form-control" value="#{ogrenciController.category.oda_numarasi}"/>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <h:commandButton  class="btn btn-info" value="Update" action="#{ogrenciController.update()}">
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
+                                </h:commandButton>
+                                <h:commandButton  class="btn btn-primary" value="Create" action="#{ogrenciController.create()}">
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
+                                </h:commandButton>
+                            </div>
+                        </div>                
+                    </h:form>
+                </div>
+            </div>
+            <div class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  
+                </div>
+            </div>
+        </div>
+        
+    </h:body>
+
+
+</html>
+
