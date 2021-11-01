@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>temizlik_personeli</title>
+        <h:outputStylesheet library ="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <h:form>
+                Are you sure you want to delete? 
+                <pre>
+                    <br>ID : </br>#{temizlik_personeliController.category.tc}<br/>
+                    <br>isim  : </br>#{temizlik_personeliController.category.isim}<br/>      
+                    <br>telefon_no  : </br>#{temizlik_personeliController.category.telefon_no}<br/>
+                    <br>maas  : </br>#{temizlik_personeliController.category.maas}<br/>                 
+                    <br>kat_numarasi  : </br>#{temizlik_personeliController.category.kat_numarasi}<br/>
+                    <br>muhaseip_tc  : </br>#{temizlik_personeliController.category.muhaseip_tc}<br/>
+                <div class="btn-group">
+                    <h:commandButton styleClass="btn btn-dark" action="index" value="Cancel"/>
+                    <h:commandButton styleClass="btn btn-danger" action="#{temizlik_personeliController.delete()}" value="Delete"/>
+                </div>
+                </pre>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

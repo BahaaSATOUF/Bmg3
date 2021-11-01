@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>odeme</title>
+        <title>kural</title>
         <h:outputStylesheet library ="css" name="bootstrap.css"/>
     </h:head>
     <h:body>
@@ -12,14 +12,11 @@
             <h:form>
                 Are you sure you want to delete? 
                 <pre>
-                    <br>ogrenci_no : </br>#{odemeController.category.ogrenci_no}<br/>
-                    <br>muhsip_tc  : </br>#{odemeController.category.muhsip_tc}<br/>
-                    <br>odeme_miktari  : </br>#{odemeController.category.odeme_miktari}<br/>               
-              
-                    
+                    <br>kural_id : </br>#{kuralController.category.kural_id}<br/>
+                    <br>aciklama  : </br>#{kuralController.category.aciklama}<br/>              
                 <div class="btn-group">
                     <h:commandButton styleClass="btn btn-dark" action="index" value="Cancel"/>
-                    <h:commandButton styleClass="btn btn-danger" action="#{odemeController.delete}" value="Delete"/>
+                    <h:commandButton styleClass="btn btn-danger" action="#{kuralController.delete}" value="Delete"/>
                 </div>
                 </pre>
             </h:form>
