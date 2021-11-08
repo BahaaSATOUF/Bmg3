@@ -58,26 +58,26 @@
                             <h:column >
                                 <f:facet name="header">gun</f:facet>
                                 <h:commandLink action="#{spor_salonuController.updateFrom(cat)}" value="#{cat.gun}">
-                                    
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>
                             <h:column >
                                 <f:facet name="header">saat</f:facet>
                                 <h:commandLink action="#{spor_salonuController.updateFrom(cat)}" value="#{cat.saat}">
-                                   
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>                        
                             <h:column >
                                 <f:facet name="header">spor_turu</f:facet>
                                 <h:commandLink action="#{spor_salonuController.updateFrom(cat)}" value="#{cat.spor_turu}">
-                                    
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>
                           
                             <h:column >
                                 <f:facet name="header">Delete</f:facet>
                                 <h:commandButton  onclick="$('.modal').modal('show')" class="btn btn-sm btn-danger" value="Delete" action="#{spor_salonuController.deleteConfirm(cat)}">
-                                    
+                                    <f:ajax execute="@this" render="category-model"/>
                                 </h:commandButton>
                             </h:column>
                         </h:dataTable>
@@ -101,10 +101,10 @@
                         <div class="form-group">
                             <div class="btn-group">
                                 <h:commandButton  class="btn btn-info" value="Update" action="#{spor_salonuController.update()}">
-                                  
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                                 <h:commandButton  class="btn btn-primary" value="Create" action="#{spor_salonuController.create()}">
-                                   
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                             </div>
                         </div>                

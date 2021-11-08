@@ -58,31 +58,31 @@
                             <h:column >
                                 <f:facet name="header">isim</f:facet>
                                 <h:commandLink action="#{yemekhane_personeliController.updateFrom(cat)}" value="#{cat.isim}">
-                                   
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>                        
                             <h:column >
                                 <f:facet name="header">telefon_no</f:facet>
                                 <h:commandLink action="#{yemekhane_personeliController.updateFrom(cat)}" value="#{cat.telefon_no}">
-                                  
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>
                             <h:column >
                                 <f:facet name="header">maas</f:facet>
                                 <h:commandLink action="#{yemekhane_personeliController.updateFrom(cat)}" value="#{cat.maas}">
-                                 
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>                                                  
                             <h:column >
                                 <f:facet name="header">muhasip_tc</f:facet>
                                 <h:commandLink action="#{yemekhane_personeliController.updateFrom(cat)}" value="#{cat.muhasip_tc}">
-                                   
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>
                             <h:column >
                                 <f:facet name="header">Delete</f:facet>
                                 <h:commandButton  onclick="$('.modal').modal('show')" class="btn btn-sm btn-danger" value="Delete" action="#{yemekhane_personeliController.deleteConfirm(cat)}">
-                                   
+                                    <f:ajax execute="@this" render="category-model"/>
                                 </h:commandButton>
                             </h:column>
                         </h:dataTable>
@@ -106,10 +106,10 @@
                         <div class="form-group">
                             <div class="btn-group">
                                 <h:commandButton  class="btn btn-info" value="Update" action="#{yemekhane_personeliController.update()}">
-                                    
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                                 <h:commandButton  class="btn btn-primary" value="Create" action="#{yemekhane_personeliController.create()}">
-                                   
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                             </div>
                         </div>                

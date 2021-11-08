@@ -58,19 +58,19 @@
                             <h:column >
                                 <f:facet name="header">KITAB ADI</f:facet>
                                 <h:commandLink action="#{kitablikController.updateFrom(cat)}" value="#{cat.kitap_adi}">
-                                  
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>
                             <h:column >
                                 <f:facet name="header">YAZAR</f:facet>
                                 <h:commandLink action="#{kitablikController.updateFrom(cat)}" value="#{cat.yazar}">
-                                   
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>    
                              <h:column >
                                 <f:facet name="header">Delete</f:facet>
                                 <h:commandButton  onclick="$('.modal').modal('show')" class="btn btn-sm btn-danger" value="Delete" action="#{kitablikController.deleteConfirm(cat)}">
-                                    
+                                    <f:ajax execute="@this" render="category-model"/>    
                                 </h:commandButton>
                             </h:column>
                             
@@ -94,10 +94,10 @@
                         <div class="form-group">
                             <div class="btn-group">
                                 <h:commandButton  class="btn btn-info" value="Update" action="#{kitablikController.update}">
-                                 
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                                 <h:commandButton  class="btn btn-primary" value="Create" action="#{kitablikController.create}">
-                                   
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                             </div>
                         </div>                

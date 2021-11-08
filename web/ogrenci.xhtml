@@ -58,31 +58,31 @@
                             <h:column >
                                 <f:facet name="header">ADI</f:facet>
                                 <h:commandLink action="#{ogrenciController.updateFrom(cat)}" value="#{cat.ogrenci_adi}">
-                                   
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>
                             <h:column >
                                 <f:facet name="header">SOYADI</f:facet>
                                 <h:commandLink action="#{ogrenciController.updateFrom(cat)}" value="#{cat.ogrenci_soyad}">
-                                    
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>                        
                             <h:column >
                                 <f:facet name="header">TELEFON NO</f:facet>
                                 <h:commandLink action="#{ogrenciController.updateFrom(cat)}" value="#{cat.telefon_no}">
-                                   
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>
                             <h:column >
                                 <f:facet name="header">ODA NO</f:facet>
                                 <h:commandLink action="#{ogrenciController.updateFrom(cat)}" value="#{cat.oda_numarasi}">
-                                   
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>
                             <h:column >
                                 <f:facet name="header">Delete</f:facet>
                                 <h:commandButton  onclick="$('.modal').modal('show')" class="btn btn-sm btn-danger" value="Delete" action="#{ogrenciController.deleteConfirm(cat)}">
-                                   
+                                    <f:ajax execute="@this" render="category-model"/>
                                 </h:commandButton>
                             </h:column>
                         </h:dataTable>
@@ -107,10 +107,10 @@
                         <div class="form-group">
                             <div class="btn-group">
                                 <h:commandButton  class="btn btn-info" value="Update" action="#{ogrenciController.update()}">
-                                    
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                                 <h:commandButton  class="btn btn-primary" value="Create" action="#{ogrenciController.create()}">
-                                    
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                             </div>
                         </div>                

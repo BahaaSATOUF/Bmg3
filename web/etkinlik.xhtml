@@ -58,25 +58,25 @@
                             <h:column >
                                 <f:facet name="header">sunan_hoca</f:facet>
                                 <h:commandLink action="#{etkinlikController.updateFrom(cat)}" value="#{cat.sunan_hoca}">
-                                   
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>
                             <h:column >
                                 <f:facet name="header">etkinlik_turu</f:facet>
                                 <h:commandLink action="#{etkinlikController.updateFrom(cat)}" value="#{cat.etkinlik_turu}">
-                                 
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>                        
                             <h:column >
                                 <f:facet name="header">aciklama</f:facet>
                                 <h:commandLink action="#{etkinlikController.updateFrom(cat)}" value="#{cat.aciklama}">
-                                  
+                                    <f:ajax execute="@this" render="category-form"/>
                                 </h:commandLink>
                             </h:column>                           
                             <h:column >
                                 <f:facet name="header">Delete</f:facet>
                                 <h:commandButton  onclick="$('.modal').modal('show')" class="btn btn-sm btn-danger" value="Delete" action="#{etkinlikController.deleteConfirm(cat)}">
-                                 
+                                    <f:ajax execute="@this" render="category-model"/>
                                 </h:commandButton>
                             </h:column>
                         </h:dataTable>
@@ -100,10 +100,10 @@
                         <div class="form-group">
                             <div class="btn-group">
                                 <h:commandButton  class="btn btn-info" value="Update" action="#{etkinlikController.update()}">
-                                
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                                 <h:commandButton  class="btn btn-primary" value="Create" action="#{etkinlikController.create()}">
-                                    
+                                    <f:ajax execute="category-form" render="category-form category-table"/>
                                 </h:commandButton>
                             </div>
                         </div>                
